@@ -116,6 +116,19 @@ comp_window_android_create(struct comp_compositor *c);
 extern const struct comp_target_factory comp_target_factory_android;
 #endif // XRT_OS_ANDROID
 
+#ifdef XRT_OS_APPLE
+/*!
+ * Create a surface on iPhone
+ *
+ * @ingroup comp_main
+ * @public @memberof comp_window_uikit
+ */
+struct comp_target *
+comp_window_uikit_create(struct comp_compositor *c);
+
+extern const struct comp_target_factory comp_target_factory_uikit;
+#endif // XRT_OS_APPLE
+
 #ifdef XRT_OS_WINDOWS
 
 /*!

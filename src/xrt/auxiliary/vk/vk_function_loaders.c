@@ -106,6 +106,12 @@ vk_get_instance_functions(struct vk_bundle *vk)
 
 #endif // defined(VK_USE_PLATFORM_DISPLAY_KHR)
 
+#if defined(VK_USE_PLATFORM_METAL_EXT)
+	vk->vkCreateMetalSurfaceEXT                           = GET_INS_PROC(vk, vkCreateMetalSurfaceEXT);
+	vk->vkExportMetalObjectsEXT                           = GET_INS_PROC(vk, vkExportMetalObjectsEXT);
+
+#endif // defined(VK_USE_PLATFORM_METAL_EXT)
+
 #if defined(VK_USE_PLATFORM_XCB_KHR)
 	vk->vkCreateXcbSurfaceKHR                             = GET_INS_PROC(vk, vkCreateXcbSurfaceKHR);
 

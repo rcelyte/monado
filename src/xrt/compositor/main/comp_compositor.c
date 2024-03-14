@@ -556,9 +556,6 @@ compositor_check_and_prepare_xdev(struct comp_compositor *c, struct xrt_device *
 
 static const char *instance_extensions_common[] = {
     COMP_INSTANCE_EXTENSIONS_COMMON,
-#ifdef XRT_OS_APPLE
-    "VK_MVK_macos_surface",
-#endif
 };
 
 static const char *optional_instance_extensions[] = {
@@ -803,6 +800,9 @@ const struct comp_target_factory *ctfs[] = {
 #endif
 #ifdef XRT_OS_ANDROID
     &comp_target_factory_android,
+#endif
+#ifdef XRT_OS_APPLE
+    &comp_target_factory_uikit,
 #endif
 #ifdef XRT_OS_WINDOWS
     &comp_target_factory_mswin,

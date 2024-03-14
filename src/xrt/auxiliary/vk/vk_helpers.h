@@ -227,6 +227,12 @@ struct vk_bundle
 
 #endif // defined(VK_USE_PLATFORM_DISPLAY_KHR)
 
+#if defined(VK_USE_PLATFORM_METAL_EXT)
+	PFN_vkCreateMetalSurfaceEXT vkCreateMetalSurfaceEXT;
+	PFN_vkExportMetalObjectsEXT vkExportMetalObjectsEXT;
+
+#endif // defined(VK_USE_PLATFORM_METAL_EXT)
+
 #if defined(VK_USE_PLATFORM_XCB_KHR)
 	PFN_vkCreateXcbSurfaceKHR vkCreateXcbSurfaceKHR;
 

@@ -221,6 +221,7 @@ create_instance(struct vk_bundle *vk, const struct comp_vulkan_arguments *vk_arg
 
 	VkInstanceCreateInfo instance_info = {
 	    .sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO,
+	    .flags = VK_INSTANCE_CREATE_ENUMERATE_PORTABILITY_BIT_KHR,
 	    .pApplicationInfo = &app_info,
 	    .enabledExtensionCount = u_string_list_get_size(instance_ext_list),
 	    .ppEnabledExtensionNames = u_string_list_get_data(instance_ext_list),
