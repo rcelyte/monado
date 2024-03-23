@@ -132,6 +132,10 @@ xrt_builder_create_func_t target_builder_list[] = {
     t_builder_wmr_create,
 #endif // T_BUILDER_WMR
 
+#ifdef T_BUILDER_IPHONE
+    t_builder_iphone_create,
+#endif // T_BUILDER_IPHONE
+
 #ifdef T_BUILDER_LEGACY
     t_builder_legacy_create,
 #endif // T_BUILDER_LEGACY

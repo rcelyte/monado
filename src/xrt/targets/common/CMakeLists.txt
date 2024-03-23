@@ -16,6 +16,11 @@ target_include_directories(target_lists PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 # Builders
 #
 
+if(XRT_BUILD_DRIVER_ARKIT)
+	target_sources(target_lists PRIVATE target_builder_iphone.m)
+	target_link_libraries(target_lists PRIVATE "-framework ARKit")
+endif()
+
 if(XRT_BUILD_DRIVER_REMOTE)
 	target_sources(target_lists PRIVATE target_builder_remote.c)
 endif()
@@ -162,6 +167,10 @@ endif()
 
 if(XRT_BUILD_DRIVER_ANDROID)
 	target_link_libraries(target_lists PRIVATE drv_android)
+endif()
+
+if(XRT_BUILD_DRIVER_ARKIT)
+	target_link_libraries(target_lists PRIVATE drv_arkit)
 endif()
 
 if(XRT_BUILD_DRIVER_ILLIXR)

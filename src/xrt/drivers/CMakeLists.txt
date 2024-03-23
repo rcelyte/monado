@@ -494,6 +494,18 @@ if(XRT_BUILD_DRIVER_ANDROID)
 	list(APPEND ENABLED_DRIVERS android)
 endif()
 
+if(XRT_BUILD_DRIVER_ARKIT)
+	add_library(drv_arkit STATIC arkit/arkit.m arkit/arkit.h)
+	target_link_libraries(
+		drv_arkit
+		PRIVATE
+			xrt-interfaces
+			aux_util
+			aux_os
+		)
+	list(APPEND ENABLED_DRIVERS arkit)
+endif()
+
 if(XRT_BUILD_DRIVER_ILLIXR)
 	add_library(
 		drv_illixr STATIC

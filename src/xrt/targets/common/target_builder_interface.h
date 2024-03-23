@@ -19,6 +19,10 @@
 // Always enabled.
 #define T_BUILDER_LEGACY
 
+#if defined(XRT_BUILD_DRIVER_ARKIT) || defined(XRT_DOXYGEN)
+#define T_BUILDER_IPHONE
+#endif
+
 #if defined(XRT_BUILD_DRIVER_SURVIVE) || defined(XRT_BUILD_DRIVER_VIVE) || defined(XRT_DOXYGEN)
 #define T_BUILDER_LIGHTHOUSE
 #endif
@@ -64,6 +68,14 @@
  */
 struct xrt_builder *
 t_builder_legacy_create(void);
+#endif
+
+#ifdef T_BUILDER_IPHONE
+/*!
+ * Builder for Cardboard on iPhone
+ */
+struct xrt_builder *
+t_builder_iphone_create(void);
 #endif
 
 #ifdef T_BUILDER_LIGHTHOUSE
